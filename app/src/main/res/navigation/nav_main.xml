@@ -12,7 +12,10 @@
         tools:layout="@layout/fragment_1st">
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
-            app:destination="@id/secondFragment" />
+            app:destination="@id/secondFragment"
+            app:popEnterAnim="@anim/slide_to_top"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
@@ -21,11 +24,13 @@
         tools:layout="@layout/fragment_2nd">
         <action
             android:id="@+id/action_secondFragment_to_thirdFragment"
-            app:destination="@id/thirdFragment" />
+            app:destination="@id/thirdFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/slide_to_top" />
         <argument
             android:name="typeString"
-            app:argType="string"
-            android:defaultValue="(Empty)" />
+            android:defaultValue="(Empty)"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
@@ -34,7 +39,9 @@
         tools:layout="@layout/fragment_3rd">
         <action
             android:id="@+id/action_thirdFragment_to_forthFragment"
-            app:destination="@id/forthFragment" />
+            app:destination="@id/forthFragment"
+            app:enterAnim="@anim/slide_from_left"
+            app:exitAnim="@anim/slide_to_right" />
     </fragment>
     <fragment
         android:id="@+id/forthFragment"
@@ -49,5 +56,10 @@
         android:id="@+id/fifthFragment"
         android:name="jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main.FifthFragment"
         android:label="FifthFragment"
-        tools:layout="@layout/fragment_5th" />
+        tools:layout="@layout/fragment_5th" >
+        <action
+            android:id="@+id/fifthFragmentAction"
+            app:popExitAnim="@anim/slide_from_bottom"
+            />
+    </fragment>
 </navigation>
