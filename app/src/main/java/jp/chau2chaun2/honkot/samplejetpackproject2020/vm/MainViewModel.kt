@@ -1,4 +1,4 @@
-package jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main
+package jp.chau2chaun2.honkot.samplejetpackproject2020.vm
 
 import androidx.lifecycle.ViewModel
 

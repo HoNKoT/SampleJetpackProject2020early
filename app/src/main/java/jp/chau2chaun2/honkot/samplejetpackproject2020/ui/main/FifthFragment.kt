@@ -7,18 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import jp.chau2chaun2.honkot.samplejetpackproject2020.R
+import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.MainViewModel
 
-class MainFragment : Fragment() {
+class FifthFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = FifthFragment()
     }
 
     private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_5th, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
