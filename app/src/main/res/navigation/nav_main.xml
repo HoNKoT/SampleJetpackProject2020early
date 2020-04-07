@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="jp.chau2chaun2.honkot.samplejetpackproject2020.MainActivity"
+        android:label="main_activity"
+        tools:layout="@layout/fragment_1st">
+        <action
+            android:id="@+id/action_mainActivity_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </activity>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main.SecondFragment"
+        android:label="SecondFragment"
+        tools:layout="@layout/fragment_2nd">
+        <action
+            android:id="@+id/action_secondFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main.ThirdFragment"
+        android:label="ThirdFragment"
+        tools:layout="@layout/fragment_3rd">
+        <action
+            android:id="@+id/action_thirdFragment_to_forthFragment"
+            app:destination="@id/forthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forthFragment"
+        android:name="jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main.ForthFragment"
+        android:label="ForthFragment"
+        tools:layout="@layout/fragment_4th">
+        <action
+            android:id="@+id/action_forthFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fifthFragment"
+        android:name="jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main.FifthFragment"
+        android:label="FifthFragment"
+        tools:layout="@layout/fragment_5th" />
+</navigation>
