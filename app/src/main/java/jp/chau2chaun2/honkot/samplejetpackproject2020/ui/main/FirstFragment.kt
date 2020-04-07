@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 import jp.chau2chaun2.honkot.samplejetpackproject2020.R
 import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.MainViewModel
@@ -35,7 +36,8 @@ class FirstFragment : Fragment() {
 
         view.findViewById<Button>(R.id.nextButton).apply {
             setOnClickListener {
-                val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
+                val argsToNext = view.findViewById<EditText>(R.id.editText).text.toString()
+                val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(argsToNext)
                 findNavController().navigate(action)
             }
         }
