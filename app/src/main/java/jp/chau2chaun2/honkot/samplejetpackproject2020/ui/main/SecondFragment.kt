@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import jp.chau2chaun2.honkot.samplejetpackproject2020.R
 import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.MainViewModel
+import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.factory.MainViewModelFactory
 
 class SecondFragment : Fragment() {
 
@@ -21,12 +23,13 @@ class SecondFragment : Fragment() {
 
     private var count: Int = 0
 
-    private val viewModel: MainViewModel by lazy { ViewModelProvider.NewInstanceFactory().create(MainViewModel::class.java) }
+    private val viewModel: MainViewModel by lazy { ViewModelProvider(activity!!).get(MainViewModel::class.java) }
 
     private val args: SecondFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
+
         return inflater.inflate(R.layout.fragment_2nd, container, false)
     }
 
@@ -51,7 +54,10 @@ class SecondFragment : Fragment() {
                 updateView()
             }
         }
+    }
 
+    override fun onResume() {
+        super.onResume()
         updateView()
     }
 
