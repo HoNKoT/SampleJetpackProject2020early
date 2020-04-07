@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main.FirstFragment"
+        android:label="FirstFragment"
+        tools:layout="@layout/fragment_1st">
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/secondFragment"
+            app:popEnterAnim="@anim/slide_to_top"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main.SecondFragment"
+        android:label="SecondFragment"
+        tools:layout="@layout/fragment_2nd">
+        <action
+            android:id="@+id/action_secondFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/slide_to_top" />
+        <argument
+            android:name="typeString"
+            android:defaultValue="(Empty)"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main.ThirdFragment"
+        android:label="ThirdFragment"
+        tools:layout="@layout/fragment_3rd">
+        <action
+            android:id="@+id/action_thirdFragment_to_forthFragment"
+            app:destination="@id/forthFragment"
+            app:enterAnim="@anim/slide_from_left"
+            app:exitAnim="@anim/slide_to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/forthFragment"
+        android:name="jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main.ForthFragment"
+        android:label="ForthFragment"
+        tools:layout="@layout/fragment_4th">
+        <action
+            android:id="@+id/action_forthFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fifthFragment"
+        android:name="jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main.FifthFragment"
+        android:label="FifthFragment"
+        tools:layout="@layout/fragment_5th" >
+        <action
+            android:id="@+id/fifthFragmentAction"
+            app:popExitAnim="@anim/slide_from_bottom"
+            />
+    </fragment>
+</navigation>

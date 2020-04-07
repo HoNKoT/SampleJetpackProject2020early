@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SampleJetpackProject2020</string>
+
+    <string name="first_fragment_label">1st Fragment</string>
+    <string name="second_fragment_label">2nd Fragment</string>
+    <string name="third_fragment_label">3rd Fragment</string>
+    <string name="forth_fragment_label">4th Fragment</string>
+    <string name="fifth_fragment_label">5th Fragment</string>
+
+    <string name="general_next">Next</string>
+    <string name="general_back_home">Back Home</string>
+</resources>
