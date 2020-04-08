@@ -7,36 +7,34 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.widget.AppCompatTextView
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import jp.chau2chaun2.honkot.samplejetpackproject2020.R
+import jp.chau2chaun2.honkot.samplejetpackproject2020.databinding.Fragment2ndBinding
 import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.MainViewModel
-import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.factory.MainViewModelFactory
 
 class SecondFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = SecondFragment()
-    }
 
     private var count: Int = 0
 
     private val viewModel: MainViewModel by lazy { ViewModelProvider(activity!!).get(MainViewModel::class.java) }
 
+    private lateinit var binding: Fragment2ndBinding
+
     private val args: SecondFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-
-        return inflater.inflate(R.layout.fragment_2nd, container, false)
+        binding = Fragment2ndBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
 
         view.findViewById<TextView>(R.id.message).text = args.typeString
 
@@ -57,17 +55,6 @@ class SecondFragment : Fragment() {
                 updateView()
             }
         }
-
-        // set count observer to update message automatically
-        val viewModelValueView = view.findViewById<AppCompatTextView>(R.id.countUpTextOnViewModel)
-        viewModel.count.observe(viewLifecycleOwner, Observer { count ->
-            viewModelValueView.text = count.toString()
-        })
-        // set message observer to update message automatically
-        val countMessageView = view.findViewById<AppCompatTextView>(R.id.countUpTextOnViewModel2)
-        viewModel.countMessage.observe(viewLifecycleOwner, Observer { countMessage ->
-            countMessageView.text = countMessage
-        })
     }
 
     override fun onResume() {
