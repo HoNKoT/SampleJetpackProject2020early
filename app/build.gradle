@@ -56,4 +56,12 @@ dependencies {
     // Jetpack:ViewModel
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0"
+
+    // Dagger2
+    implementation "com.google.dagger:dagger:2.24"
+    kapt "com.google.dagger:dagger-compiler:2.24"
+    implementation "com.google.dagger:dagger-android:2.24"
+    implementation "com.google.dagger:dagger-android-support:2.24"
+    kapt "com.google.dagger:dagger-android-processor:2.21"
 }
