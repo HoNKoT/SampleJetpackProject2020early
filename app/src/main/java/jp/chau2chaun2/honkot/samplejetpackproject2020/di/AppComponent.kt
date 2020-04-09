@@ -1,7 +1,5 @@
 package jp.chau2chaun2.honkot.samplejetpackproject2020.di
 
-import android.content.Context
-import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
@@ -15,6 +13,6 @@ import javax.inject.Singleton
     ActivityModule::class
 ])
 interface AppComponent : AndroidInjector<CustomApplication> {
-    @Component.Builder
-    abstract class Builder : AndroidInjector.Builder<CustomApplication>()
+    @Component.Factory
+    interface Factory : AndroidInjector.Factory<CustomApplication>
 }
