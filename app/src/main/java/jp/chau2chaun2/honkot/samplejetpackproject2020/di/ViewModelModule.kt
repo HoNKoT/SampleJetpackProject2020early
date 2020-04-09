@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import jp.chau2chaun2.honkot.samplejetpackproject2020.CustomApplication
 import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.MainViewModel
+import javax.inject.Singleton
 
 @Module
 interface ViewModelModule {
@@ -18,6 +19,7 @@ interface ViewModelModule {
     @Binds
     fun viewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
 
+    @Singleton
     @Binds
     @IntoMap
     @ViewModelKey(MainViewModel::class)
