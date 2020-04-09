@@ -4,12 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import jp.chau2chaun2.honkot.samplejetpackproject2020.db.Repo
+import javax.inject.Inject
 
-class MainViewModel(count: Int = 0) : ViewModel() {
+class MainViewModel @Inject constructor(
+    private val repo: Repo
+) : ViewModel() {
     /**
      * For set count
      */
-    private val mCount = MutableLiveData(0)
+    private val mCount = MutableLiveData(repo.getCount())
 
     /**
      * For get count
@@ -24,11 +28,11 @@ class MainViewModel(count: Int = 0) : ViewModel() {
     }
 
     init {
-        mCount.value = count
+        mCount.value = repo.getCount()
     }
 
     fun countUp() {
-        val currentCount = mCount.value ?: throw Exception("Invalid _count value")
-        mCount.value = currentCount + 1
+        repo.countUp()
+        mCount.value = repo.getCount()
     }
 }
