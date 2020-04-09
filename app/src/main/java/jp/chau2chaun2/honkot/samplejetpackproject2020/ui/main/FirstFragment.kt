@@ -1,8 +1,6 @@
 package jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,17 +9,17 @@ import android.widget.EditText
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import dagger.android.support.DaggerFragment
 import jp.chau2chaun2.honkot.samplejetpackproject2020.R
 import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.MainViewModel
-import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.factory.MainViewModelFactory
+import javax.inject.Inject
 
-class FirstFragment : Fragment() {
+class FirstFragment : DaggerFragment() {
 
-    companion object {
-        fun newInstance() = FirstFragment()
-    }
+    @Inject
+    lateinit var vmFactory: ViewModelProvider.Factory
 
-    private val viewModel: MainViewModel by lazy { ViewModelProvider.NewInstanceFactory().create(MainViewModel::class.java) }
+    private val viewModel by viewModels<MainViewModel> { vmFactory }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {

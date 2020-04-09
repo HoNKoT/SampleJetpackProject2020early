@@ -6,8 +6,12 @@
     <data>
 
         <variable
-            name="viewModel"
+            name="commonVM"
             type="jp.chau2chaun2.honkot.samplejetpackproject2020.vm.MainViewModel" />
+
+        <variable
+            name="eachVM"
+            type="jp.chau2chaun2.honkot.samplejetpackproject2020.vm.EachViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="32dp"
-            android:text="@string/second_fragment_label"
+            android:text="@{eachVM.countMessage}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/message"
@@ -41,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@{viewModel.count.toString()}"
+            android:text="@{commonVM.count.toString()}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/countUpTextOnFragment"
@@ -52,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@{viewModel.countMessage}"
+            android:text="@{commonVM.countMessage}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/countUpTextOnViewModel"
