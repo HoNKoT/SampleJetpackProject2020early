@@ -1,6 +1,5 @@
 package jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
