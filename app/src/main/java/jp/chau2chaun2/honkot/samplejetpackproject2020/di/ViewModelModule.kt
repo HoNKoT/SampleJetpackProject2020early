@@ -7,6 +7,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import jp.chau2chaun2.honkot.samplejetpackproject2020.CustomApplication
+import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.EachViewModel
 import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.MainViewModel
 import javax.inject.Singleton
 
@@ -24,4 +25,9 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(MainViewModel::class)
     fun mainViewModel(viewModel: MainViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(EachViewModel::class)
+    fun eachViewModel(viewModel: EachViewModel): ViewModel
 }

@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import jp.chau2chaun2.honkot.samplejetpackproject2020.db.Repo
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(
+class EachViewModel @Inject constructor(
     private val repo: Repo
 ) : ViewModel() {
     /**
@@ -24,7 +24,7 @@ class MainViewModel @Inject constructor(
      * Transform count to the message format automatically
      */
     val countMessage: LiveData<String> = Transformations.map(mCount) { count ->
-        "singleton view model count number is $count"
+        "each view model count number is $count"
     }
 
     init {
