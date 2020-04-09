@@ -1,5 +1,6 @@
 package jp.chau2chaun2.honkot.samplejetpackproject2020.di
 
+import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
@@ -10,9 +11,12 @@ import javax.inject.Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class, // これが必要
     AppModule::class,
-    ActivityModule::class
+    ActivityModule::class,
+    ViewModelModule::class
 ])
 interface AppComponent : AndroidInjector<CustomApplication> {
     @Component.Factory
-    interface Factory : AndroidInjector.Factory<CustomApplication>
+    interface Factory {
+        fun create(@BindsInstance app: CustomApplication): AppComponent
+    }
 }
