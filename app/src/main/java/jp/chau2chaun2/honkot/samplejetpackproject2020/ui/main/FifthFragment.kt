@@ -1,24 +1,24 @@
 package jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import dagger.android.support.DaggerFragment
 import jp.chau2chaun2.honkot.samplejetpackproject2020.R
 import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.MainViewModel
-import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.factory.MainViewModelFactory
+import javax.inject.Inject
 
-class FifthFragment : Fragment() {
+class FifthFragment : DaggerFragment() {
 
-    companion object {
-        fun newInstance() = FifthFragment()
-    }
+    @Inject
+    lateinit var vmFactory: ViewModelProvider.Factory
 
-    private val viewModel: MainViewModel by lazy { ViewModelProvider(this, MainViewModelFactory(0)).get(MainViewModel::class.java) }
+    private val viewModel by viewModels<MainViewModel> { vmFactory }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {

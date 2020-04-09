@@ -1,24 +1,29 @@
 package jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import dagger.android.support.DaggerFragment
 import jp.chau2chaun2.honkot.samplejetpackproject2020.R
 import jp.chau2chaun2.honkot.samplejetpackproject2020.databinding.Fragment2ndBinding
 import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.MainViewModel
+import javax.inject.Inject
 
-class SecondFragment : Fragment() {
+class SecondFragment : DaggerFragment() {
 
     private var count: Int = 0
 
-    private val viewModel: MainViewModel by lazy { ViewModelProvider(activity!!).get(MainViewModel::class.java) }
+    @Inject
+    lateinit var vmFactory: ViewModelProvider.Factory
+
+    private val viewModel by viewModels<MainViewModel> { vmFactory }
 
     private lateinit var binding: Fragment2ndBinding
 
