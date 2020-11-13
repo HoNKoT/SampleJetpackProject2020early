@@ -1,15 +1,23 @@
 package jp.chau2chaun2.honkot.samplejetpackproject2020.vm
 
+import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import jp.chau2chaun2.honkot.samplejetpackproject2020.db.Repo
+import jp.chau2chaun2.honkot.samplejetpackproject2020.manager.LegacyManager
 
 class MainViewModel @ViewModelInject constructor(
-    private val repo: Repo
+    private val repo: Repo,
+    manager: LegacyManager
 ) : ViewModel() {
+
+    init {
+        Log.e("MainViewModel", "### repo=0x${Integer.toHexString(repo.hashCode())}, manager=0x${Integer.toHexString(manager.hashCode())}")
+    }
+
     /**
      * For set count
      */

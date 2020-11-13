@@ -14,15 +14,4 @@ import jp.chau2chaun2.honkot.samplejetpackproject2020.manager.LegacyManager
 
 @Module
 @InstallIn(ApplicationComponent::class)
-class AppModule {
-    @Provides
-    fun provideRepo(@ApplicationContext context: Context): Repo {
-        return SampleRepo(context)
-    }
-
-    @Provides
-    fun provideLegacyManager(@ApplicationContext context: Context): LegacyManager {
-        val entryPoint = EntryPointAccessors.fromApplication(context, LegacyModuleEntryPoint::class.java)
-        return entryPoint.legacyManager()
-    }
-}
+class AppSubcomponents
