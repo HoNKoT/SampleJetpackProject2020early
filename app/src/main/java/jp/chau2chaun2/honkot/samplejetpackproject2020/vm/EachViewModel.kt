@@ -1,5 +1,6 @@
 package jp.chau2chaun2.honkot.samplejetpackproject2020.vm
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -7,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import jp.chau2chaun2.honkot.samplejetpackproject2020.db.Repo
 import javax.inject.Inject
 
-class EachViewModel @Inject constructor(
+class EachViewModel @ViewModelInject constructor(
     private val repo: Repo
 ) : ViewModel() {
     /**
