@@ -6,20 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import dagger.android.support.DaggerFragment
+import dagger.hilt.android.AndroidEntryPoint
 import jp.chau2chaun2.honkot.samplejetpackproject2020.R
 import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.MainViewModel
-import javax.inject.Inject
 
-class FirstFragment : DaggerFragment() {
+@AndroidEntryPoint
+class FirstFragment : Fragment() {
 
-    @Inject
-    lateinit var vmFactory: ViewModelProvider.Factory
-
-    private val viewModel by viewModels<MainViewModel> { vmFactory }
+    private val viewModel by activityViewModels<MainViewModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {

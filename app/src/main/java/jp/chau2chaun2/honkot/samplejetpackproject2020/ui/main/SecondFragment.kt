@@ -6,25 +6,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import dagger.android.support.DaggerFragment
+import dagger.hilt.android.AndroidEntryPoint
 import jp.chau2chaun2.honkot.samplejetpackproject2020.R
 import jp.chau2chaun2.honkot.samplejetpackproject2020.databinding.Fragment2ndBinding
 import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.EachViewModel
 import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.MainViewModel
-import javax.inject.Inject
 
-class SecondFragment : DaggerFragment() {
+@AndroidEntryPoint
+class SecondFragment : Fragment() {
 
-    @Inject
-    lateinit var vmFactory: ViewModelProvider.Factory
+    private val commonViewModel by activityViewModels<MainViewModel>()
 
-    private val commonViewModel by viewModels<MainViewModel> { vmFactory }
-
-    private val eachViewModel by viewModels<EachViewModel> { vmFactory }
+    private val eachViewModel by viewModels<EachViewModel>()
 
     private lateinit var binding: Fragment2ndBinding
 
