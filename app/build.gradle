@@ -35,8 +35,8 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
 }
 
@@ -63,6 +63,11 @@ dependencies {
     // Dagger_hilt
     implementation "com.google.dagger:hilt-android:$hilt_version" // 必須
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version" // 必須
+
+    // Groupie
+    implementation 'com.xwray:groupie:2.8.1'
+    implementation "com.xwray:groupie-kotlin-android-extensions:2.8.1"
+    implementation "com.xwray:groupie-viewbinding:2.8.1"
 
     def dagger_hilt_view_model_version = "1.0.0-alpha02"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:${dagger_hilt_view_model_version}"

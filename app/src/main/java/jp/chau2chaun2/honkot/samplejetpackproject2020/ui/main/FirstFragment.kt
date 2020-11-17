@@ -33,5 +33,11 @@ class FirstFragment : Fragment() {
                 findNavController().navigate(action)
             }
         }
+        view.findViewById<Button>(R.id.listButton).apply {
+            setOnClickListener {
+                val action = FirstFragmentDirections.actionFirstFragmentToGroupieListFragment()
+                findNavController().navigate(action)
+            }
+        }
     }
 }

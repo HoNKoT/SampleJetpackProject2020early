@@ -16,6 +16,12 @@
             app:popEnterAnim="@anim/slide_to_top"
             app:enterAnim="@anim/slide_from_right"
             app:exitAnim="@anim/slide_to_left" />
+        <action
+            android:id="@+id/action_firstFragment_to_groupieListFragment"
+            app:destination="@id/groupieListFragment"
+            app:popEnterAnim="@anim/slide_to_top"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
@@ -61,5 +67,11 @@
             android:id="@+id/fifthFragmentAction"
             app:popExitAnim="@anim/slide_from_bottom"
             />
+    </fragment>
+    <fragment
+        android:id="@+id/groupieListFragment"
+        android:name="jp.chau2chaun2.honkot.samplejetpackproject2020.ui.main.GroupieListFragment"
+        android:label="GroupieListFragment"
+        tools:layout="@layout/fragment_groupie_list">
     </fragment>
 </navigation>

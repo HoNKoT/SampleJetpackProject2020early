@@ -8,6 +8,7 @@
     <string name="fifth_fragment_label">5th Fragment</string>
 
     <string name="general_next">Next</string>
+    <string name="general_list">List</string>
     <string name="general_count_up">Count Up</string>
     <string name="general_back_home">Back Home</string>
 </resources>
