@@ -11,12 +11,14 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.viewbinding.BindableItem
 import dagger.hilt.android.AndroidEntryPoint
+import jp.chau2chaun2.honkot.samplejetpackproject2020.CustomApplication
 import jp.chau2chaun2.honkot.samplejetpackproject2020.R
 import jp.chau2chaun2.honkot.samplejetpackproject2020.databinding.FragmentGroupieListBinding
 import jp.chau2chaun2.honkot.samplejetpackproject2020.databinding.ItemGroupieListBinding
 import jp.chau2chaun2.honkot.samplejetpackproject2020.model.SampleBindingData
 import jp.chau2chaun2.honkot.samplejetpackproject2020.util.autoCleared
 import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.GroupieListViewModel
+import jp.chau2chaun2.honkot.samplejetpackproject2020.vm.RowGroupieViewModel
 
 @AndroidEntryPoint
 class GroupieListFragment : Fragment() {
@@ -43,20 +45,26 @@ class GroupieListFragment : Fragment() {
         viewModel.initialize()
     }
 
-    private class ListItem(
+    private inner class ListItem(
         private val data: SampleBindingData
     ) : BindableItem<ItemGroupieListBinding>(data.displayData.hashCode().toLong()) {
 
         override fun getLayout() = R.layout.item_groupie_list
 
         override fun initializeViewBinding(view: View): ItemGroupieListBinding {
-            return ItemGroupieListBinding.bind(view)
+            return ItemGroupieListBinding.bind(view).also {
+                val component = (view.context.applicationContext as CustomApplication).rowViewModelComponent
+                val rowViewModel = RowGroupieViewModel(component)
+                it.lifecycleOwner = viewLifecycleOwner
+                it.viewModel = rowViewModel
+                it.root.tag = rowViewModel
+            }
         }
 
         @SuppressLint("SetTextI18n")
         override fun bind(viewBinding: ItemGroupieListBinding, position: Int) {
-            viewBinding.textHead.text = data.displayData
-            viewBinding.textTail.text = "@${Integer.toHexString(viewBinding.hashCode())}"
+            val rowViewModel = viewBinding.root.tag as RowGroupieViewModel
+            rowViewModel.setData(data)
         }
     }
 }
